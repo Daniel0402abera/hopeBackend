@@ -838,6 +838,77 @@ export interface ApiCommentComment extends Schema.CollectionType {
   };
 }
 
+export interface ApiOurFeeOurFee extends Schema.CollectionType {
+  collectionName: 'our_fees';
+  info: {
+    singularName: 'our-fee';
+    pluralName: 'our-fees';
+    displayName: 'ourFee';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Level: Attribute.String & Attribute.Required;
+    age_of_start: Attribute.String & Attribute.Required;
+    application_fee: Attribute.Integer & Attribute.Required;
+    registration_fee: Attribute.Integer & Attribute.Required;
+    term1: Attribute.Integer & Attribute.Required;
+    term2: Attribute.Integer & Attribute.Required;
+    term3: Attribute.Integer & Attribute.Required;
+    term4: Attribute.Integer & Attribute.Required;
+    total: Attribute.Integer & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::our-fee.our-fee',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::our-fee.our-fee',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiOurTeamOurTeam extends Schema.CollectionType {
+  collectionName: 'our_teams';
+  info: {
+    singularName: 'our-team';
+    pluralName: 'our-teams';
+    displayName: 'ourTeam';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    profile: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::our-team.our-team',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::our-team.our-team',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiStudentStudent extends Schema.CollectionType {
   collectionName: 'students';
   info: {
@@ -1051,6 +1122,8 @@ declare module '@strapi/types' {
       'api::blog.blog': ApiBlogBlog;
       'api::category.category': ApiCategoryCategory;
       'api::comment.comment': ApiCommentComment;
+      'api::our-fee.our-fee': ApiOurFeeOurFee;
+      'api::our-team.our-team': ApiOurTeamOurTeam;
       'api::student.student': ApiStudentStudent;
     }
   }

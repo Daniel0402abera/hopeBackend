@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "our_fees",
+  "info": {
+    "singularName": "our-fee",
+    "pluralName": "our-fees",
+    "displayName": "ourFee"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Level": {
+      "type": "string",
+      "required": true
+    },
+    "age_of_start": {
+      "type": "string",
+      "required": true
+    },
+    "application_fee": {
+      "type": "integer",
+      "required": true
+    },
+    "registration_fee": {
+      "type": "integer",
+      "required": true
+    },
+    "term1": {
+      "type": "integer",
+      "required": true
+    },
+    "term2": {
+      "type": "integer",
+      "required": true
+    },
+    "term3": {
+      "type": "integer",
+      "required": true
+    },
+    "term4": {
+      "required": true,
+      "type": "integer"
+    },
+    "total": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}
