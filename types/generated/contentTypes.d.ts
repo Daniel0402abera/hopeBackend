@@ -838,6 +838,70 @@ export interface ApiCommentComment extends Schema.CollectionType {
   };
 }
 
+export interface ApiCommunityCommunity extends Schema.SingleType {
+  collectionName: 'communities';
+  info: {
+    singularName: 'community';
+    pluralName: 'communities';
+    displayName: 'Community';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Attribute.Media & Attribute.Required;
+    images: Attribute.Media;
+    content: Attribute.RichText & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::community.community',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::community.community',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCurriculumCurriculum extends Schema.SingleType {
+  collectionName: 'curricula';
+  info: {
+    singularName: 'curriculum';
+    pluralName: 'curricula';
+    displayName: 'Curriculum';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Attribute.Media & Attribute.Required;
+    images: Attribute.Media;
+    content: Attribute.RichText & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::curriculum.curriculum',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::curriculum.curriculum',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiOurFeeOurFee extends Schema.CollectionType {
   collectionName: 'our_fees';
   info: {
@@ -902,6 +966,39 @@ export interface ApiOurTeamOurTeam extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::our-team.our-team',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiOverviewOverview extends Schema.SingleType {
+  collectionName: 'overviews';
+  info: {
+    singularName: 'overview';
+    pluralName: 'overviews';
+    displayName: 'Overview';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    images: Attribute.Media & Attribute.Required;
+    content: Attribute.RichText & Attribute.Required;
+    banner: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::overview.overview',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::overview.overview',
       'oneToOne',
       'admin::user'
     > &
@@ -1122,8 +1219,11 @@ declare module '@strapi/types' {
       'api::blog.blog': ApiBlogBlog;
       'api::category.category': ApiCategoryCategory;
       'api::comment.comment': ApiCommentComment;
+      'api::community.community': ApiCommunityCommunity;
+      'api::curriculum.curriculum': ApiCurriculumCurriculum;
       'api::our-fee.our-fee': ApiOurFeeOurFee;
       'api::our-team.our-team': ApiOurTeamOurTeam;
+      'api::overview.overview': ApiOverviewOverview;
       'api::student.student': ApiStudentStudent;
     }
   }
