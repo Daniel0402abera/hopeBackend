@@ -4,7 +4,8 @@
   "info": {
     "singularName": "our-fee",
     "pluralName": "our-fees",
-    "displayName": "ourFee"
+    "displayName": "ourFee",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -45,6 +46,14 @@
     },
     "total": {
       "type": "integer",
+      "required": true
+    },
+    "per_month_fee": {
+      "type": "integer",
+      "required": true
+    },
+    "Year": {
+      "type": "date",
       "required": true
     }
   }

@@ -908,6 +908,7 @@ export interface ApiOurFeeOurFee extends Schema.CollectionType {
     singularName: 'our-fee';
     pluralName: 'our-fees';
     displayName: 'ourFee';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -922,6 +923,8 @@ export interface ApiOurFeeOurFee extends Schema.CollectionType {
     term3: Attribute.Integer & Attribute.Required;
     term4: Attribute.Integer & Attribute.Required;
     total: Attribute.Integer & Attribute.Required;
+    per_month_fee: Attribute.Integer & Attribute.Required;
+    Year: Attribute.Date & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
